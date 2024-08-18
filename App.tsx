@@ -1,11 +1,21 @@
+import { NavigationContainer } from '@react-navigation/native';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { Keyboard, Pressable, StyleSheet, Text, View } from 'react-native';
+import AuthStack from './src/navigation/AuthStack';
+import React from 'react';
+import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 
 export default function App() {
   return (
-    <View className='flex-1 justify-center items-center'>
-      <Text className='text-3xl text-red-600'>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <Pressable onPress={Keyboard.dismiss} className='flex-1'>
+      <SafeAreaProvider>
+        <SafeAreaView style={{ flex: 1 }} edges={[]}>
+          <NavigationContainer>
+            <AuthStack />
+          </NavigationContainer>
+        </SafeAreaView>
+        <StatusBar style="auto" animated />
+      </SafeAreaProvider>
+    </Pressable>
   );
 }
