@@ -29,15 +29,13 @@ export default function App() {
     return null;
   }
   return (
-    <Pressable onPress={Keyboard.dismiss} className='flex-1'>
-      <SafeAreaProvider>
-        <SafeAreaView style={{ flex: 1 }} edges={[]}>
-          <NavigationContainer>
-            <AuthStack />
-          </NavigationContainer>
-        </SafeAreaView>
-        <StatusBar style="auto" animated />
-      </SafeAreaProvider>
-    </Pressable>
+    <SafeAreaProvider>
+      <SafeAreaView style={{ flex: 1 }} edges={[]}>
+        <NavigationContainer>
+          <AuthStack />
+        </NavigationContainer>
+      </SafeAreaView>
+      <StatusBar style="auto" animated />
+    </SafeAreaProvider>
   );
 }

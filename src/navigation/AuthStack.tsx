@@ -1,9 +1,9 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import React from 'react'
 import { StackNavigationList } from '../types/stackType'
-import Login from '../screens/auth/Login'
-import Onboarding from '../screens/auth/Onboarding'
-import Register from '../screens/auth/Register'
+import Login from '../screens/auth/login'
+import Onboarding from '../screens/auth/onboarding'
+import Register from '../screens/auth/register'
 
 const Stack = createNativeStackNavigator<StackNavigationList>()
 
