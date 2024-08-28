@@ -1,19 +1,24 @@
-import { View, Text } from 'react-native'
 import React, { useEffect } from 'react'
-import { SplashScreen, Stack,Tabs } from 'expo-router'
-import { Inter_100Thin, Inter_900Black, Inter_700Bold, Inter_500Medium, Inter_400Regular } from '@expo-google-fonts/inter';
+import { SplashScreen, Stack } from 'expo-router'
+import { Inter_900Black, Inter_700Bold, Inter_500Medium, Inter_400Regular, Inter_300Light } from '@expo-google-fonts/inter';
 import { useFonts } from 'expo-font';
-import {FiraSans_100Thin} from '@expo-google-fonts/fira-sans'
+import { LeagueSpartan_300Light, LeagueSpartan_400Regular, LeagueSpartan_500Medium, LeagueSpartan_700Bold, LeagueSpartan_900Black} from '@expo-google-fonts/league-spartan'
+import 'react-native-reanimated'
+
 SplashScreen.preventAutoHideAsync();
 
 const RootStack = () => {
   const [loaded, error] = useFonts({
-    Inter_100Thin,
-    Inter_900Black,
-    Inter_700Bold,
-    Inter_500Medium,
-    Inter_400Regular,
-    FiraSans_100Thin
+    i300: Inter_300Light,
+    i400: Inter_400Regular,
+    i500: Inter_500Medium,
+    i700: Inter_700Bold,
+    i900: Inter_900Black,
+    l300: LeagueSpartan_300Light,
+    l400: LeagueSpartan_400Regular,
+    l500: LeagueSpartan_500Medium,
+    l700: LeagueSpartan_700Bold,
+    l900: LeagueSpartan_900Black
   });
 
   useEffect(() => {
@@ -25,8 +30,12 @@ const RootStack = () => {
   if (!loaded && !error) {
     return null;
   }
+
   return (
-    <Stack/>
+    <Stack>
+      <Stack.Screen name='(auth)' options={{headerShown: false}}/>
+      <Stack.Screen name='(drawer)' options={{ headerShown: false }} />
+    </Stack>
   )
 }
 
