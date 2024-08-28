@@ -1,10 +1,30 @@
-import { View, Text } from 'react-native'
+import { View, Text, Image } from 'react-native'
 import React from 'react'
 import {Drawer} from 'expo-router/drawer'
+import CustomDrawer from '@components/drawer/customDrawer'
+import { TouchableOpacity } from 'react-native-gesture-handler'
+import { heightPercentageToDP as hp } from 'react-native-responsive-screen'
+import { router, useNavigation } from 'expo-router'
 
 const DrawerLayout = () => {
+  const navigation = useNavigation()
+
   return (
-    <Drawer/>
+    <Drawer 
+      drawerContent={(props)=><CustomDrawer {...props}/>}
+      screenOptions={{
+        headerTitle: '',
+        headerLeft:(()=>(
+          <TouchableOpacity activeOpacity={0.8} onPress={()=>navigation.openDrawer()}>
+            <Image 
+              source={require('@assets/appImage/git.jpg')} 
+              style={{width: hp(5), height:hp(5)}}
+              className='rounded-full ml-2'
+            />
+          </TouchableOpacity>
+        ))
+      }}
+    />
   )
 }
 
