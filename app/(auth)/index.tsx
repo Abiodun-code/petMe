@@ -6,7 +6,7 @@ import Colors from '@utils/colors';
 import Animated, { useSharedValue, withSpring } from 'react-native-reanimated';
 
 const Onboarding = () => {
-
+  
   const ring1 = useSharedValue(0)
   const ring2 = useSharedValue(0)
 
