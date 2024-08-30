@@ -30,7 +30,7 @@ const CustomDrawer = (props: any) => {
             icon={({ color, size }) => (<AntDesign name='home' color={pathname == '/home' ? Colors.black : Colors.black} size={size} />)}
             label={"Home"}
             onPress={() => { router.navigate('/(tabs)/home') }}
-            style={{ backgroundColor: pathname == '/home' ? '#f9fafb' : Colors.white }}
+            style={{ backgroundColor: pathname == '/home' ? Colors.lightPrimary : Colors.white }}
             labelStyle={{ color: pathname == '/home' ? Colors.black : Colors.black, marginLeft: -hp(3), fontFamily: 'i500', fontSize: hp(2) }}
             
           />
@@ -38,7 +38,7 @@ const CustomDrawer = (props: any) => {
             icon={({ color, size }) => (<AntDesign name='setting' color={pathname == '/settings' ? Colors.black : Colors.black} size={size} />)}
             label={"Settings"}
             onPress={() => { router.navigate('/(tabs)/settings') }}
-            style={{ backgroundColor: pathname == '/settings' ? '#f9fafb' : Colors.white }}
+            style={{ backgroundColor: pathname == '/settings' ? Colors.lightPrimary : Colors.white }}
             labelStyle={{ color: pathname == '/settings' ? Colors.black : Colors.black, marginLeft: -hp(3), fontFamily: 'i500', fontSize: hp(2) }}
           />
         </View>

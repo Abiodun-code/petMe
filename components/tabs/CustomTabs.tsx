@@ -2,6 +2,7 @@ import Colors from '@utils/colors';
 import { View, Text, TouchableOpacity, StyleSheet, Platform } from 'react-native';
 import { heightPercentageToDP as hp } from 'react-native-responsive-screen'
 import { AntDesign } from '@expo/vector-icons'
+import Animated, { useAnimatedStyle, useSharedValue, withSpring, withTiming } from 'react-native-reanimated';
 
 const CustomTabs  = ({ state, descriptors, navigation })=> {
 
@@ -16,7 +17,7 @@ const CustomTabs  = ({ state, descriptors, navigation })=> {
       style={style.tabBar}
       className='flex-row absolute justify-between items-center'
     >
-      {state.routes.map((route, index) => {
+      {state.routes.map((route: any, index: number) => {
         const { options } = descriptors[route.key];
         const label =
           options.tabBarLabel !== undefined
@@ -24,8 +25,6 @@ const CustomTabs  = ({ state, descriptors, navigation })=> {
             : options.title !== undefined
               ? options.title
               : route.name;
-
-        console.log('route name:', route.name)
 
         const isFocused = state.index === index;
 
@@ -59,19 +58,11 @@ const CustomTabs  = ({ state, descriptors, navigation })=> {
             onLongPress={onLongPress}
             className='flex-1 items-center'
           >
-            {isFocused ? (
-              <View style={[
-                isFocused && style.focusedIconContainer
-              ]} className='rounded-full'>
-                {icons[route.name]({
-                  color: Colors.white, // Change icon color when focused
-                })}
-              </View>
-            ) : (
-              icons[route.name]({
-                color: Colors.black, // Default icon color when not focused
-              })
-            )}
+            <View style={[isFocused && style.focusedIconContainer]} className='rounded-full'>
+              {icons[route.name]({
+                color: isFocused ? Colors.white : Colors.black, // Adjust icon color based on focus
+              })}
+            </View>
           </TouchableOpacity>
         );
       })}
@@ -96,7 +87,7 @@ const style = StyleSheet.create({
     elevation: hp(.4),
   },
   focusedIconContainer: {
-    backgroundColor: Colors.deepPrimary,
     padding: hp(2),
-  },
+    backgroundColor: Colors.deepPrimary,
+  }
 })
