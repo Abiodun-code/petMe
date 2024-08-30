@@ -4,19 +4,28 @@ import Colors from '@utils/colors'
 import { heightPercentageToDP as hp } from 'react-native-responsive-screen'
 import { useNavigation } from 'expo-router'
 import { DrawerActions } from '@react-navigation/native'
+import { Ionicons } from '@expo/vector-icons'
+import { ScrollView } from 'react-native-gesture-handler'
 
-const HomeStack = () => {
+const HomeStack = ({ bottomSheetRef }) => {
 
   const navigation = useNavigation()
 
   return (
-    <View className='flex-row items-center justify-between'>
+    <View className='flex-row items-center justify-between' style={{marginBottom:hp(4)}}>
       <TouchableOpacity activeOpacity={0.8} onPress={() => navigation.dispatch(DrawerActions.openDrawer())}>
         <Image
           source={require('@assets/appImage/git.jpg')}
           style={{ width: hp(5), height: hp(5), marginLeft: hp(1) }}
           className='rounded-full'
         />
+      </TouchableOpacity>
+      <Text className='uppercase' style={{ fontFamily: 'i700' }}>Petme</Text>
+      <TouchableOpacity
+        activeOpacity={0.8} style={{ marginRight: hp(1) }} 
+        onPress={() => bottomSheetRef.current.open()}
+      >
+        <Ionicons name="notifications-outline" size={hp(4)} color={Colors.black}/>
       </TouchableOpacity>
     </View>
   )

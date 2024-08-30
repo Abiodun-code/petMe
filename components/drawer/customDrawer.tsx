@@ -23,7 +23,6 @@ const CustomDrawer = (props: any) => {
       <View className='space-y-5'>
         <View className='space-y-4'>
           <CustomImage/>
-          <View  className='border-b border-gray-300'/>
         </View>
         <View>
           <DrawerItem
