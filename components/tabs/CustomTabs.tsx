@@ -1,15 +1,14 @@
 import Colors from '@utils/colors';
-import { View, Text, TouchableOpacity, StyleSheet, Platform } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { heightPercentageToDP as hp } from 'react-native-responsive-screen'
-import { AntDesign } from '@expo/vector-icons'
-import Animated, { useAnimatedStyle, useSharedValue, withSpring, withTiming } from 'react-native-reanimated';
+import { AntDesign, Ionicons } from '@expo/vector-icons'
 
 const CustomTabs  = ({ state, descriptors, navigation })=> {
 
   const icons = {
-    "home": (props: any) => <AntDesign name='home' size={hp(3)} color={Colors.black} {...props} />,
-    "search": (props: any) => <AntDesign name='search1' size={hp(3)} color={Colors.black} {...props} />,
-    "settings": (props: any) => <AntDesign name='setting' size={hp(3)} color={Colors.black} {...props} />
+    "home": (props: any) => <AntDesign name="home" size={hp(3)} color={Colors.black} {...props} />,
+    "search": (props: any) => <Ionicons name="search-outline" size={hp(3)} color={Colors.black} {...props} />,
+    "settings": (props: any) => <Ionicons name="settings-outline" size={hp(3)} color={Colors.black} {...props} />
   }
 
   return (
