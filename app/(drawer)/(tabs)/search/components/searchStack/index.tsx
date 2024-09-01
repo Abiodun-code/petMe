@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity, Image, TextInput, KeyboardAvoidingView } from 'react-native'
+import { View, Text, TouchableOpacity, Image, TextInput, KeyboardAvoidingView, useWindowDimensions, Platform } from 'react-native'
 import React, { useContext } from 'react'
 import Colors from '@utils/colors'
 import { heightPercentageToDP as hp } from 'react-native-responsive-screen'
@@ -12,8 +12,14 @@ const SearchStack = () => {
 
   const navigation = useNavigation()
 
+  const {height} = useWindowDimensions()
+  console.log(height);
+  
   return (
-    <KeyboardAvoidingView className='flex-1'>
+    <KeyboardAvoidingView className='flex-1'
+      behavior={Platform.OS === 'ios' ? 'padding' : undefined}
+      keyboardVerticalOffset={60}
+    >
       <View className='flex-row items-center justify-between' style={{ marginBottom: hp(4) }}>
         <TouchableOpacity activeOpacity={0.8} onPress={() => navigation.dispatch(DrawerActions.openDrawer())}>
           <Image
