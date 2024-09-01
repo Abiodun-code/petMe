@@ -4,6 +4,7 @@ import { Inter_900Black, Inter_700Bold, Inter_500Medium, Inter_400Regular, Inter
 import { useFonts } from 'expo-font';
 import { LeagueSpartan_300Light, LeagueSpartan_400Regular, LeagueSpartan_500Medium, LeagueSpartan_700Bold, LeagueSpartan_900Black} from '@expo-google-fonts/league-spartan'
 import 'react-native-reanimated'
+import ContextWrapper from '@contexts/index';
 
 SplashScreen.preventAutoHideAsync();
 
@@ -32,10 +33,12 @@ const RootStack = () => {
   }
 
   return (
-    <Stack>
-      <Stack.Screen name='(auth)' options={{headerShown: false}}/>
-      <Stack.Screen name='(drawer)' options={{ headerShown: false }} />
-    </Stack>
+    <ContextWrapper>
+      <Stack>
+        <Stack.Screen name='(auth)' options={{ headerShown: false }} />
+        <Stack.Screen name='(drawer)' options={{ headerShown: false }} />
+      </Stack>
+    </ContextWrapper>
   )
 }
 

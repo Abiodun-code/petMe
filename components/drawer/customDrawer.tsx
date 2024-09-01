@@ -42,8 +42,9 @@ const CustomDrawer = (props: any) => {
           />
         </View>
       </View>
-      <TouchableOpacity className=' mb-4'>
-        <Text className=''>Hello</Text>
+      <TouchableOpacity activeOpacity={0.8} className=' mb-4 border-t flex-row justify-between items-center' style={{ marginHorizontal:hp(3), paddingVertical:hp(2), borderTopColor:Colors.deepPrimary}}>
+        <Text className='capitalize' style={{fontFamily:'l500', fontSize:hp(2.2)}}>Log out</Text>
+        <Ionicons name="log-out-outline" size={hp(3.5)} color={Colors.black}/>
       </TouchableOpacity>
     </DrawerContentScrollView>
   )
