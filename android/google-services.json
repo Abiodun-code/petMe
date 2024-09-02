@@ -7,9 +7,9 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:550432230232:android:8a634776616aebe9fcb32d",
+        "mobilesdk_app_id": "1:550432230232:android:67a8c96eb67903defcb32d",
         "android_client_info": {
-          "package_name": "com.abioduncode.petmeBackend"
+          "package_name": "com.abioduncode.petMe"
         }
       },
       "oauth_client": [],
