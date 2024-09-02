@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "550432230232",
+    "project_id": "petme-backend",
+    "storage_bucket": "petme-backend.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:550432230232:android:8a634776616aebe9fcb32d",
+        "android_client_info": {
+          "package_name": "com.abioduncode.petmeBackend"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAu85fYGC4gUlqS4dHmJ3579uwvuDSpICw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
