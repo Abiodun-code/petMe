@@ -22,6 +22,14 @@
           }
         },
         {
+          "client_id": "550432230232-sbiit3n4lfgr2edet5404hfofk2nddhd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.abioduncode.petMe",
+            "certificate_hash": "3f24b97e211a8489ebf54019c325b73e391ec95c"
+          }
+        },
+        {
           "client_id": "550432230232-h9par2dckjkvakftjs72ga6lv7t00ctt.apps.googleusercontent.com",
           "client_type": 3
         }

@@ -13,6 +13,8 @@ GoogleSignin.configure({
   iosClientId: "550432230232-rlas4347sas72vopo9fdv2ct6n0birjp.apps.googleusercontent.com",
   offlineAccess: true,
   forceCodeForRefreshToken: true,
+  profileImageSize: 120,
+  scopes: ['profile', 'email'],
 })
 const Login = () => {
 
@@ -37,7 +39,7 @@ const Login = () => {
       <GoogleSigninButton
       size={GoogleSigninButton.Size.Wide}
       color={GoogleSigninButton.Color.Dark}
-      // onPress={}
+      onPress={signInWithGoogle}
       />
     </View>
   )
