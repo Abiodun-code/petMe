@@ -12,7 +12,12 @@
           "package_name": "com.abioduncode.petMe"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "550432230232-h9par2dckjkvakftjs72ga6lv7t00ctt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyAu85fYGC4gUlqS4dHmJ3579uwvuDSpICw"
@@ -20,7 +25,12 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "550432230232-h9par2dckjkvakftjs72ga6lv7t00ctt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }
