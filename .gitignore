@@ -34,4 +34,8 @@ yarn-error.*
 # typescript
 *.tsbuildinfo
 
-google-services.json/
+# Ignore Google Services configuration files
+google-services.json
+
+# Ignore .ENV files
+.env
