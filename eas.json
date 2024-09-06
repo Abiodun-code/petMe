@@ -5,12 +5,24 @@
   "build": {
     "development": {
       "developmentClient": true,
-      "distribution": "internal"
+      "distribution": "internal",
+       "env": {
+        "GOOGLE_WEB_CLIENT_ID": "@secret(GOOGLE_WEB_CLIENT_ID)",
+        "GOOGLE_IOS_CLIENT_ID": "@secret(GOOGLE_IOS_CLIENT_ID)",
+        "GOOGLE_SERVICES_JSON": "@secret(GOOGLE_SERVICES_JSON)"
+      }
     },
     "preview": {
       "distribution": "internal"
     },
-    "production": {}
+    "production": {
+      "autoIncrement": true,
+      "env": {
+        "GOOGLE_WEB_CLIENT_ID": "@secret(GOOGLE_WEB_CLIENT_ID)",
+        "GOOGLE_IOS_CLIENT_ID": "@secret(GOOGLE_IOS_CLIENT_ID)",
+        "GOOGLE_SERVICES_JSON": "@secret(GOOGLE_SERVICES_JSON)"
+      }
+    }
   },
   "submit": {
     "production": {}
