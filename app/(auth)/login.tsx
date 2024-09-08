@@ -7,13 +7,14 @@ import {
   isSuccessResponse,
   statusCodes
 } from '@react-native-google-signin/google-signin'
-import { GOOGLE_WEB_CLIENT_ID, GOOGLE_IOS_CLIENT_ID } from "@env"
+import { EXPO_WEB_CLIENT_ID, EXPO_IOS_CLIENT_ID } from "@env"
+
 const Login = () => {
 
   useEffect(() => {
     GoogleSignin.configure({
-      webClientId: GOOGLE_WEB_CLIENT_ID,
-      iosClientId: GOOGLE_IOS_CLIENT_ID,
+      webClientId: EXPO_WEB_CLIENT_ID,
+      iosClientId: EXPO_IOS_CLIENT_ID,
       offlineAccess: true,
       forceCodeForRefreshToken: true,
       profileImageSize: 120,
@@ -28,8 +29,9 @@ const Login = () => {
       await GoogleSignin.hasPlayServices();
       const response = await GoogleSignin.signIn();
       if (isSuccessResponse(response)) {
-        setState({ userInfo: response.data });
-        console.log(state)
+        const userInfo = response.data
+        setState( userInfo);
+        
       } else {
         // sign in was cancelled by user
       }
@@ -49,6 +51,7 @@ const Login = () => {
         // an error that's not related to google sign in occurred
       }
     }
+    console.log(state.user)
   };
 
 
@@ -59,7 +62,7 @@ const Login = () => {
         // If userInfo is not null, display user information
         <View style={{ alignItems: 'center' }}>
           <Text>User is signed in!</Text>
-          <Text>Name: {state.userInfo.user.email}</Text>
+          <Text>Email: {state.user.email}</Text>
         </View>
       ) : (
         // If userInfo is null, display the Google Sign-In button

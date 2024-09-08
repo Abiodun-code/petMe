@@ -7,20 +7,19 @@
       "developmentClient": true,
       "distribution": "internal",
        "env": {
-        "GOOGLE_WEB_CLIENT_ID": "@secret(GOOGLE_WEB_CLIENT_ID)",
-        "GOOGLE_IOS_CLIENT_ID": "@secret(GOOGLE_IOS_CLIENT_ID)",
-        "GOOGLE_SERVICES_JSON": "@secret(GOOGLE_SERVICES_JSON)"
+        "EXPO_WEB_CLIENT_ID": "EXPO_WEB_CLIENT_ID",
+        "EXPO_IOS_CLIENT_ID": "EXPO_IOS_CLIENT_ID",
+        "GOOGLE_SERVICES_JSON": "GOOGLE_SERVICES_JSON"
       }
     },
     "preview": {
       "distribution": "internal"
     },
     "production": {
-      "autoIncrement": true,
       "env": {
-        "GOOGLE_WEB_CLIENT_ID": "@secret(GOOGLE_WEB_CLIENT_ID)",
-        "GOOGLE_IOS_CLIENT_ID": "@secret(GOOGLE_IOS_CLIENT_ID)",
-        "GOOGLE_SERVICES_JSON": "@secret(GOOGLE_SERVICES_JSON)"
+        "EXPO_WEB_CLIENT_ID": "EXPO_WEB_CLIENT_ID",
+        "EXPO_IOS_CLIENT_ID": "EXPO_IOS_CLIENT_ID",
+        "GOOGLE_SERVICES_JSON": "GOOGLE_SERVICES_JSON"
       }
     }
   },
