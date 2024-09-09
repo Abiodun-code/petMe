@@ -5,9 +5,6 @@ import { useFonts } from 'expo-font';
 import { LeagueSpartan_300Light, LeagueSpartan_400Regular, LeagueSpartan_500Medium, LeagueSpartan_700Bold, LeagueSpartan_900Black} from '@expo-google-fonts/league-spartan'
 import 'react-native-reanimated'
 import ContextWrapper from '@contexts/index';
-import * as WebBrowser from 'expo-web-browser';
-
-WebBrowser.maybeCompleteAuthSession();
 
 SplashScreen.preventAutoHideAsync();
 
