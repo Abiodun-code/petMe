@@ -12,7 +12,7 @@ const Onboarding = () => {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      router.navigate("/login")
+      router.replace("/(drawer)/(tabs)/home")
     }, 500);
 
     return () => clearTimeout(timer);
