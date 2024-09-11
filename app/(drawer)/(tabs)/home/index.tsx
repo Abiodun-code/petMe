@@ -8,6 +8,7 @@ import HomeStack from './components/homeStack'
 import BottomSheet from './components/homeBottom'
 import { HomeStackContext } from '@contexts/home/homeStackContet'
 import Animated from 'react-native-reanimated'
+import HomeContent from './components/homeContent'
 
 const Home = () => {
   
@@ -16,10 +17,13 @@ const Home = () => {
   const { } = useContext(HomeStackContext)
   
   return (
-    <ScrollView className='flex-1' style={{backgroundColor:Colors.white, paddingTop: hp(6)}}>
+    <View className='flex-1' style={{backgroundColor:Colors.white, paddingTop: hp(6)}}>
       <HomeStack bottomSheetRef={bottomSheetRef}  />
+      <ScrollView>
+        <HomeContent />
+      </ScrollView>
       <BottomSheet bottomSheetRef={bottomSheetRef} children={undefined}/>
-    </ScrollView>
+    </View>
   )
 }
 

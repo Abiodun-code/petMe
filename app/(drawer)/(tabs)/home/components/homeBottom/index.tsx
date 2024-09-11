@@ -15,7 +15,8 @@ const BottomSheet = ({bottomSheetRef, children}) => {
        closeOnPressBack={true}
        customStyles={{
         wrapper:{
-          backgroundColor: 'rgba(0,0,0,0.5)'
+          backgroundColor: 'rgba(0,0,0,0.5)',
+          flex:1
         },
         draggableIcon:{
           backgroundColor: Colors.deepPrimary,

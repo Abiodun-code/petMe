@@ -12,7 +12,8 @@ const Onboarding = () => {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      router.replace("/(drawer)/(tabs)/home")
+      // router.replace("/(drawer)/(tabs)/home")
+      router.replace("/login")
     }, 500);
 
     return () => clearTimeout(timer);
@@ -37,7 +38,7 @@ const Onboarding = () => {
       </Animated.View>
       <View className='flex items-center px-3 space-y-3'>
         <Text className='uppercase' style={{ fontSize: hp(3), fontFamily: "i900", color: Colors.white }}>PetMe</Text>
-        <Text style={{ fontSize: hp(2.2), fontFamily: 'i300', color: Colors.white}} className='capitalize leading-5 text-center'>Discover new friends, meet new pets, and build a strong bond.</Text>
+        <Text style={{ fontSize: hp(2.2), fontFamily: 'l500', color: Colors.white, }} className='capitalize leading-5 text-center'>Discover new friends, meet new pets, and build a strong bond.</Text>
       </View>
     </View>
   )
