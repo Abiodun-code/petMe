@@ -5,6 +5,7 @@ import { useFonts } from 'expo-font';
 import { LeagueSpartan_300Light, LeagueSpartan_400Regular, LeagueSpartan_500Medium, LeagueSpartan_700Bold, LeagueSpartan_900Black} from '@expo-google-fonts/league-spartan'
 import 'react-native-reanimated'
 import ContextWrapper from '@contexts/index';
+import { configureFonts, PaperProvider } from 'react-native-paper';
 
 SplashScreen.preventAutoHideAsync();
 
@@ -32,13 +33,24 @@ const RootStack = () => {
     return null;
   }
 
+
+  const fontConfig = {
+    fontFamily: 'l300',
+  };
+
+  const theme = {
+    fonts: configureFonts({ config: fontConfig }),
+  };
+
   return (
-    <ContextWrapper>
-      <Stack>
-        <Stack.Screen name='(auth)' options={{ headerShown: false }} />
-        <Stack.Screen name='(drawer)' options={{ headerShown: false }} />
-      </Stack>
-    </ContextWrapper>
+    <PaperProvider theme={theme}>
+      <ContextWrapper>
+        <Stack>
+          <Stack.Screen name='(auth)' options={{ headerShown: false }} />
+          <Stack.Screen name='(drawer)' options={{ headerShown: false }} />
+        </Stack>
+      </ContextWrapper>
+    </PaperProvider>
   )
 }
 

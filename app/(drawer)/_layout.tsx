@@ -2,7 +2,6 @@ import React from 'react'
 import {Drawer} from 'expo-router/drawer'
 import CustomDrawer from '@components/drawer/customDrawer'
 
-
 const DrawerLayout = () => {
 
   return (

@@ -1,7 +1,8 @@
+import { View, Text } from 'react-native'
 import React from 'react'
 import { Stack } from 'expo-router'
 
-const HomeLayout = () => {
+const LoginLayout = () => {
   return (
     <Stack>
       <Stack.Screen name='index' options={{ headerShown: false }} />
@@ -9,4 +10,4 @@ const HomeLayout = () => {
   )
 }
 
-export default HomeLayout
+export default LoginLayout
