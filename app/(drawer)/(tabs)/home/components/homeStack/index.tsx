@@ -15,7 +15,7 @@ const HomeStack = ({ bottomSheetRef }: Props) => {
   const navigation = useNavigation()
 
   return (
-    <Animated.View className='flex-row items-center justify-between' style={{marginBottom:hp(4)}}>
+    <View className='flex-row items-center justify-between' style={{marginBottom:hp(4)}}>
       <TouchableOpacity activeOpacity={0.8} onPress={() => navigation.dispatch(DrawerActions.openDrawer())}>
         <Image
           source={require('@assets/appImage/git.jpg')}
@@ -30,7 +30,7 @@ const HomeStack = ({ bottomSheetRef }: Props) => {
       >
         <Ionicons name="notifications-outline" size={hp(4)} color={Colors.black}/>
       </TouchableOpacity>
-    </Animated.View>
+    </View>
   )
 }
 
