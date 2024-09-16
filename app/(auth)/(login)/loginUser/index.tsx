@@ -31,7 +31,7 @@ const Login = () => {
             value={password} onChangeText={setPassword} textColor={Colors.black} activeOutlineColor={Colors.black}
           />
         </View>
-        <TouchableOpacity activeOpacity={0.6} onPress={() => { router.navigate('./forget') }} className='' style={{ marginBottom: hp(7), marginHorizontal: hp(1.5) }}>
+        <TouchableOpacity activeOpacity={0.6} onPress={() => { router.navigate('forget') }} className='' style={{ marginBottom: hp(7), marginHorizontal: hp(1.5) }}>
           <Text style={{ fontFamily: 'l500', fontSize: hp(2.2), color: Colors.deepPrimary }}>forget your password?</Text>
         </TouchableOpacity>
         <TouchableOpacity activeOpacity={0.6} disabled={isLogin} style={{ marginHorizontal: hp(1.5), backgroundColor: isLogin ? Colors.lightPrimary : Colors.deepPrimary, padding: hp(2), borderRadius: hp(2) }}>

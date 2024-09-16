@@ -2,7 +2,7 @@ import { View, Text } from 'react-native'
 import React from 'react'
 import { Stack } from 'expo-router'
 
-const ForgetLayout = () => {
+const LoginUserLayout = () => {
   return (
     <Stack>
       <Stack.Screen name='index' options={{ headerShown: false }} />
@@ -10,4 +10,4 @@ const ForgetLayout = () => {
   )
 }
 
-export default ForgetLayout
+export default LoginUserLayout

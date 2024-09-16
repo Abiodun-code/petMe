@@ -1,6 +1,6 @@
 import { Button, Image, Text, View } from 'react-native'
 import React, { useEffect } from 'react'
-import { heightPercentageToDP as hp, widthPercentageToDP as wp } from 'react-native-responsive-screen'
+import { heightPercentageToDP as hp} from 'react-native-responsive-screen'
 import { router } from 'expo-router';
 import Colors from '@utils/colors';
 import Animated, { useSharedValue, withSpring } from 'react-native-reanimated';
@@ -13,7 +13,7 @@ const Onboarding = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       // router.replace("/(drawer)/(tabs)/home")
-      router.replace("/login")
+      router.replace("/(login)/loginUser")
     }, 500);
 
     return () => clearTimeout(timer);
