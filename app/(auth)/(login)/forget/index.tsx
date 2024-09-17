@@ -4,11 +4,12 @@ import React from 'react'
 import { heightPercentageToDP as hp } from 'react-native-responsive-screen'
 import Colors from '@utils/colors'
 import { router } from 'expo-router';
+import Container from '@shared/Container';
 
 const ForgetPassword = () => {
 
   return (
-    <SafeAreaView className='flex-1' style={{ backgroundColor:'red' }}>
+    <Container>
       <ScrollView  style={{ backgroundColor: Colors.white }}>
         <View className='flex-col items-center space-y-3' style={{ marginBottom: hp(7) }}>
           <Text style={{ fontFamily: 'i700', fontSize: hp(2.7) }}>Forget password</Text>
@@ -24,7 +25,7 @@ const ForgetPassword = () => {
           <Text style={{ fontFamily: 'l500', fontSize: hp(2.5), color: Colors.white }} className='text-center'>Continue</Text>
         </TouchableOpacity>
       </ScrollView>
-    </SafeAreaView>
+    </Container>
   )
 }
 

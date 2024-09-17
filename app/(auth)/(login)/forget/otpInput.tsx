@@ -4,11 +4,12 @@ import React from 'react'
 import { heightPercentageToDP as hp } from 'react-native-responsive-screen'
 import Colors from '@utils/colors'
 import Constants from 'expo-constants';
+import Container from '@shared/Container';
 
 const OtpInput = () => {
 
   return (
-    <SafeAreaView className='flex-1' style={{ }}>
+    <Container>
       <ScrollView style={{ backgroundColor: Colors.white }}>
         <View className='flex-col items-center space-y-3' style={{ marginBottom: hp(7) }}>
           <Text style={{ fontFamily: 'i700', fontSize: hp(2.7) }}>Enter verification code</Text>
@@ -18,7 +19,7 @@ const OtpInput = () => {
           {/* <O /> */}
         </View>
       </ScrollView>
-    </SafeAreaView>
+    </Container>
   )
 }
 
