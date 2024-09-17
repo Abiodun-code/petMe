@@ -1,18 +1,18 @@
-import { View, ScrollView, TouchableOpacity, SafeAreaView } from 'react-native'
+import { View, ScrollView, TouchableOpacity } from 'react-native'
 import { Text, TextInput } from 'react-native-paper';
 import React, { useContext } from 'react'
 import Colors from '@utils/colors'
 import { heightPercentageToDP as hp } from 'react-native-responsive-screen'
 import { LoginContext } from '@contexts/login/loginContext';
 import { router } from 'expo-router';
-import { headerBar } from '@utils/platform';
+import Container from '@shared/Container';
 
 const Login = () => {
 
   const {passwordVisible, email, password, setEmail, setPassword, togglePasswordVisibility, isLogin} = useContext(LoginContext)
 
   return (
-    <SafeAreaView className='flex-1' style={{ marginTop: headerBar }}>
+    <Container>
       <ScrollView contentContainerStyle={{ flex: 1 }} style={{ backgroundColor: Colors.white }}>
         <View className='flex-col items-center space-y-3' style={{ marginBottom: hp(5) }}>
           <Text style={{ fontFamily: 'i700', fontSize: hp(2.7) }}>Log in to your account</Text>
@@ -46,7 +46,7 @@ const Login = () => {
           </View>
         </View>
       </ScrollView>
-    </SafeAreaView>
+    </Container>
   )
 }
 
