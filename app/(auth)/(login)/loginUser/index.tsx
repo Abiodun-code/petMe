@@ -5,7 +5,7 @@ import Colors from '@utils/colors'
 import { heightPercentageToDP as hp } from 'react-native-responsive-screen'
 import { LoginContext } from '@contexts/login/loginContext';
 import { router } from 'expo-router';
-import Container from '@shared/Container';
+import { Button, Container, CustomInput, Loading, Title } from '@shared/index';
 
 const Login = () => {
 
@@ -13,30 +13,21 @@ const Login = () => {
 
   return (
     <Container>
-      <ScrollView contentContainerStyle={{ flex: 1 }} style={{ backgroundColor: Colors.white }}>
-        <View className='flex-col items-center space-y-3' style={{ marginBottom: hp(5) }}>
-          <Text style={{ fontFamily: 'i700', fontSize: hp(2.7) }}>Log in to your account</Text>
+      <ScrollView contentContainerStyle={{ flex: 1, paddingTop:hp(2) }}>
+        <View className='flex-col items-center space-y-1' style={{ marginBottom: hp(5) }}>
+          <Title>Log in to your account</Title>
           <Text style={{ fontFamily: 'l400', fontSize: hp(2.3) }} className=' capitalize text-gray-500'>Welcome back, Please enter your details</Text>
         </View>
-        <View className='flex-row' style={{ marginBottom: hp(3), marginHorizontal: hp(1.5) }}>
-          <TextInput label={'Email'} mode='outlined' className='flex-1' style={{ backgroundColor: Colors.white, fontSize: hp(2.3) }}
-            outlineStyle={{ borderRadius: hp(1.5), borderColor: Colors.gray }}
-            value={email} onChangeText={setEmail} textColor={Colors.black} activeOutlineColor={Colors.black}
-          />
-        </View>
-        <View className='flex-row' style={{ marginBottom: hp(1), marginHorizontal: hp(1.5) }}>
-          <TextInput label={'Password'} mode='outlined' className='flex-1' style={{ backgroundColor: Colors.white, fontSize: hp(2.3) }}
-            outlineStyle={{ borderRadius: hp(1.5), borderColor: Colors.gray }} secureTextEntry={!passwordVisible}
-            right={<TextInput.Icon icon={passwordVisible ? 'eye-off' : 'eye'} onPress={togglePasswordVisibility} />}
-            value={password} onChangeText={setPassword} textColor={Colors.black} activeOutlineColor={Colors.black}
-          />
-        </View>
+        <CustomInput label={'Email'} value={email} onChangeText={setEmail}/>
+        <CustomInput label={'Password'} value={password} onChangeText={setPassword} secureTextEntry={!passwordVisible}
+          right={<TextInput.Icon icon={passwordVisible ? 'eye-off' : 'eye'} onPress={togglePasswordVisibility} />}
+        />
         <TouchableOpacity activeOpacity={0.6} onPress={() => { router.navigate('forget') }} className='' style={{ marginBottom: hp(7), marginHorizontal: hp(1.5) }}>
           <Text style={{ fontFamily: 'l500', fontSize: hp(2.2), color: Colors.deepPrimary }}>forget your password?</Text>
         </TouchableOpacity>
-        <TouchableOpacity activeOpacity={0.6} disabled={isLogin} style={{ marginHorizontal: hp(1.5), backgroundColor: isLogin ? Colors.lightPrimary : Colors.deepPrimary, padding: hp(2), borderRadius: hp(2) }}>
+        <Button disabled={isLogin} bg={isLogin ? Colors.lightPrimary : Colors.deepPrimary}>
           <Text style={{ fontFamily: 'l500', fontSize: hp(2.5), color: Colors.white }} className='text-center'>Log in</Text>
-        </TouchableOpacity>
+        </Button>
         <View className='flex-1 justify-end items-center' style={{ marginBottom: hp(6) }}>
           <View className='flex-row items-center space-x-1'>
             <Text style={{ fontFamily: 'l400', fontSize: hp(2.2), color: Colors.black }}>Dont have an account?</Text>

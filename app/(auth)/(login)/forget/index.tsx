@@ -4,7 +4,7 @@ import React from 'react'
 import { heightPercentageToDP as hp } from 'react-native-responsive-screen'
 import Colors from '@utils/colors'
 import { router } from 'expo-router';
-import Container from '@shared/Container';
+import { Container } from '@shared/index';
 
 const ForgetPassword = () => {
 
