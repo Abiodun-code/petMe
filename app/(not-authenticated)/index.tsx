@@ -1,11 +1,11 @@
-import { Button, Image, Text, TouchableOpacity, View } from 'react-native'
+import { Image, View } from 'react-native'
 import React, { useEffect } from 'react'
 import { heightPercentageToDP as hp} from 'react-native-responsive-screen'
 import { router } from 'expo-router';
 import Colors from '@utils/colors';
 import Animated, { useSharedValue, withSpring } from 'react-native-reanimated';
-import Container from '@shared/container';
-
+import { Button, Container } from '@shared/index';
+import { Text } from 'react-native-paper';
 const Onboarding = () => {
   
   const ring1 = useSharedValue(0)
@@ -31,7 +31,7 @@ const Onboarding = () => {
     {
       id: 1,
       name: 'Log in',
-      link: '/(login)/loginUser',
+      link: '/login',
       bg: Colors.deepPrimary,
       border: 0,
       borderCol: 'none',
@@ -51,15 +51,15 @@ const Onboarding = () => {
           </Animated.View>
         </Animated.View>
         <View className='flex justify-center items-center px-3'>
-          <Text className='uppercase' style={{ fontSize: hp(3), fontFamily: "i700", color: Colors.deepPrimary }}>PetMe 🐶🐱🦅🐰</Text>
+          <Text variant='headlineSmall' className='uppercase' style={{ fontFamily: "i700", color: Colors.deepPrimary }}>PetMe 🐶🐱🦅🐰</Text>
         </View>
-        <View className='space-y-4'>
+        <View>
           {LINK_DATA.map((item, index)=>(
-            <TouchableOpacity style={{backgroundColor:item.bg, padding:hp(2), borderRadius:hp(7), borderWidth: item.border, borderColor:item.borderCol}} 
-              className='flex items-center' key={index} activeOpacity={0.7} onPress={()=>{router.navigate(item.link)}}
+            <Button bg={item.bg} p={hp(2)} borderW={item.border} borderC={item.borderCol} mb={hp(3)}
+             key={index} press={()=>{router.navigate(item.link)}}
             >
-              <Text style={{fontFamily:"l400", fontSize:hp(2.1), color:item.color}}>{item.name}</Text>
-            </TouchableOpacity>
+              <Text variant='titleSmall' style={{fontFamily:"i700", color:item.color}} className='text-center'>{item.name}</Text>
+            </Button>
           ))}
         </View>
       </View>

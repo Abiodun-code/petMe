@@ -15,7 +15,7 @@ const CustomInput: React.FC<CustomTextProps> = ({
 }) => {
   
   return (
-    <View className='flex-row' style={{ marginBottom: hp(1), marginHorizontal: hp(1.5) }}>
+    <View className='flex-row' style={{ marginBottom: hp(1)}}>
       <TextInput label={label} className='flex-1' style={{ backgroundColor: Colors.white, fontSize: hp(2.3) }}
         outlineStyle={{ borderRadius: hp(1.5), borderColor: Colors.gray }} mode='outlined'
         textColor={Colors.black} activeOutlineColor={Colors.black} disabled={disabled}
