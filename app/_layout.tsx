@@ -11,9 +11,9 @@ const RootStack = () => {
     <ConfigureWrapper>
      <SafeAreaProvider>
         <StatusBar style='dark' />
-        <Stack>
-          <Stack.Screen name='(auth)' options={{ headerShown: false }} />
-          <Stack.Screen name='(drawer)' options={{ headerShown: false }} />
+        <Stack initialRouteName='not-authenticated'>
+          <Stack.Screen name='(not-authenticated)' options={{ headerShown: false }} />
+          <Stack.Screen name='(authenticated)' options={{ headerShown: false }} />
         </Stack>
      </SafeAreaProvider>
     </ConfigureWrapper>
