@@ -5,12 +5,13 @@ import { heightPercentageToDP as hp } from 'react-native-responsive-screen'
 interface Props {
   children: React.ReactNode,
   font?: string,
+  variant?: string | undefined
 }
 
-const Title = ({children, font}: Props) => {
+const Title = ({children, font, variant}: Props) => {
   return (
     <Text
-      variant='titleMedium'
+      variant={variant ? variant : 'titleMedium'}
       style={{ fontFamily: font || 'i700' }}
     >
       {children}

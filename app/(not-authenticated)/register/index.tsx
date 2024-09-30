@@ -1,16 +1,34 @@
-import { ScrollView, Text, View } from 'react-native'
-import React from 'react'
-import { heightPercentageToDP  as hp } from 'react-native-responsive-screen'
+import { View, ScrollView } from 'react-native'
+import { Text, TextInput } from 'react-native-paper';
+import React, { useContext } from 'react'
 import Colors from '@utils/colors'
+import { heightPercentageToDP as hp } from 'react-native-responsive-screen'
+import { LoginContext } from '@contexts/login/loginContext';
+import { router } from 'expo-router';
+import { Button, Container, CustomInput, Title } from '@shared/index';
+
 const Register = () => {
+
+  const { passwordVisible, email, password, setEmail, setPassword, togglePasswordVisibility, isLogin } = useContext(LoginContext)
+
   return (
-    <ScrollView contentContainerStyle={{ flex: 1, marginTop: hp(15) }} style={{ backgroundColor: Colors.white }}>
-      <View className='flex-col items-center space-y-3' style={{ marginBottom: hp(5) }}>
-        <Text style={{ fontFamily: 'i700', fontSize: hp(2.7) }}>Log in to your account</Text>
-        <Text style={{ fontFamily: 'l400', fontSize: hp(2.3) }} className=' capitalize text-gray-500'>Welcome back, Please enter your details</Text>
-      </View>
-      
-    </ScrollView>
+    <Container padX={hp(2)}>
+      <ScrollView contentContainerStyle={{ flex: 1, paddingTop: hp(2) }}>
+        <View className='flex-col items-center space-y-1' style={{ marginBottom: hp(5) }}>
+          <Title>Sign up</Title>
+        </View>
+        <CustomInput label={'Username'} value={email} onChangeText={setEmail} />
+        <CustomInput label={'Email'} value={email} onChangeText={setEmail} />
+        <CustomInput label={'Password'} value={password} onChangeText={setPassword} secureTextEntry={!passwordVisible}
+          right={<TextInput.Icon icon={passwordVisible ? 'eye-off' : 'eye'} onPress={togglePasswordVisibility} />}
+        />
+        <View style={{marginTop:hp(5)}}>
+          <Button disabled={isLogin} bg={isLogin ? Colors.lightPrimary : Colors.deepPrimary} p={hp(2)} press={()=>router.navigate('/welcome')}>
+            <Text variant='titleSmall' style={{ fontFamily: 'i500', color: Colors.white }} className='text-center'>Sign up</Text>
+          </Button>
+        </View>
+      </ScrollView>
+    </Container>
   )
 }
 
