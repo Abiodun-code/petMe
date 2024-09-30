@@ -1,5 +1,4 @@
-import { View, Text } from 'react-native'
-import React, { Children, createContext, useState } from 'react'
+import React, { createContext, useState } from 'react'
 import { loginChild, loginContextProps } from '../../types/loginType'
 
 export const LoginContext = createContext({} as loginContextProps)

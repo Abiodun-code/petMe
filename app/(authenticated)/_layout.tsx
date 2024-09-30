@@ -1,16 +1,15 @@
 import React from 'react'
-import {Drawer} from 'expo-router/drawer'
-import CustomDrawer from '@components/drawer/customDrawer'
+import { Tabs } from 'expo-router'
+import CustomTabs from '@components/tabs/CustomTabs'
 
-const DrawerLayout = () => {
-
+const TabsLayout = () => {
   return (
-    <Drawer 
-      drawerContent={(props)=><CustomDrawer {...props}/>}>
-      <Drawer.Screen name='(tabs)' options={{ headerShown: false }} />
-      <Drawer.Screen name='profile' options={{headerShown: false}} />
-    </Drawer>
+    <Tabs tabBar={props => <CustomTabs {...props} />}>
+      <Tabs.Screen name='home' options={{ headerShown: false }} />
+      <Tabs.Screen name='search' options={{ headerShown: false }} />
+      <Tabs.Screen name='settings' options={{ headerShown: false }} />
+    </Tabs>
   )
 }
 
-export default DrawerLayout
+export default TabsLayout

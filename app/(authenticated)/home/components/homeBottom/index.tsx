@@ -16,7 +16,7 @@ const BottomSheet = ({bottomSheetRef, children}) => {
        customStyles={{
         wrapper:{
           backgroundColor: 'rgba(0,0,0,0.5)',
-          flex:1
+          flex: 1
         },
         draggableIcon:{
           backgroundColor: Colors.deepPrimary,

@@ -16,16 +16,16 @@ const HomeStack = ({ bottomSheetRef }: Props) => {
 
   return (
     <View className='flex-row items-center justify-between' style={{marginBottom:hp(4)}}>
-      <TouchableOpacity activeOpacity={0.8} onPress={() => navigation.dispatch(DrawerActions.openDrawer())}>
+      <TouchableOpacity activeOpacity={0.8}>
         <Image
           source={require('@assets/appImage/git.jpg')}
-          style={{ width: hp(5), height: hp(5), marginLeft: hp(1) }}
+          style={{ width: hp(5), height: hp(5) }}
           className='rounded-full'
         />
       </TouchableOpacity>
       <Text className='uppercase' style={{ fontFamily: 'i700' }}>Petme</Text>
       <TouchableOpacity
-        activeOpacity={0.8} style={{ marginRight: hp(1) }} 
+        activeOpacity={0.8}
         onPress={() => bottomSheetRef.current.open()}
       >
         <Ionicons name="notifications-outline" size={hp(4)} color={Colors.black}/>

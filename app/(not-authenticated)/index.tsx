@@ -30,7 +30,7 @@ const Onboarding = () => {
     {
       id: 0,
       name: 'Continue with Google',
-      link: '/register',
+      link: '/(authenticated)/home',
       bg: Colors.white,
       border: 2,
       borderCol: Colors.deepPrimary,
