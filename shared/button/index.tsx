@@ -6,7 +6,7 @@ interface Props {
   children: React.ReactNode,
   disabled?: boolean,
   bg?: any,
-  press?: ((event: GestureResponderEvent) => void) | undefined,
+  press?: ((event: GestureResponderEvent) => void) | any,
   p?: number,
   pt?: number,
   mb?: number,
