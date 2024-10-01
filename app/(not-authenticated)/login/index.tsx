@@ -32,7 +32,7 @@ const Login = () => {
           <View className='flex-row items-center'>
             <Text variant='bodyMedium' style={{ fontFamily: 'i300', color: Colors.black }}>Dont have an account?</Text>
             <Button  press={() => { router.navigate('/register') }} pL={hp(1)}>
-              <Text variant='bodyMedium' style={{ fontFamily: 'i300', color: Colors.deepPrimary }}>Create an account</Text>
+              <Text variant='bodyMedium' style={{ fontFamily: 'i500', color: Colors.deepPrimary }}>Create an account</Text>
             </Button>
           </View>
         </View>
