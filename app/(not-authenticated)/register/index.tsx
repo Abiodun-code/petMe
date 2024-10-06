@@ -7,27 +7,18 @@ import { router } from 'expo-router';
 import { Button, Container, CustomInput, Title } from '@shared/index';
 import { RegisterContext } from '@contexts/register/registerContext';
 import auth from '@react-native-firebase/auth'
+import { useDispatch } from 'react-redux';
+import { createAccount } from '@services/state/not-authenticated/registerSlice';
 
 const Register = () => {
 
   const { passwordVisible, email, password, setEmail, setPassword, togglePasswordVisibility, isRegister, username, setUsername } = useContext(RegisterContext)
 
-   const registerWithEmailPassword = async () => {
-    try {
-      // Create the user with email and password
-      const userCredential = await auth().createUserWithEmailAndPassword(email, password);
+  const dispatch = useDispatch();
 
-      // Update user profile with the username
-      await userCredential.user.updateProfile({
-        displayName: username,
-      });
-
-      console.log('User registered successfully:', userCredential.user);
-      return userCredential.user;
-    } catch (error) {
-      console.error('Error registering user:', error);
-      throw error;
-    }
+  const handleRegister = () => {
+    dispatch(createAccount({ email, password }));
+    router.navigate('/(authenticated)/home');
   };
 
 
@@ -43,7 +34,7 @@ const Register = () => {
           right={<TextInput.Icon icon={passwordVisible ? 'eye-off' : 'eye'} onPress={togglePasswordVisibility} />}
         />
         <View style={{marginTop:hp(5)}}>
-          <Button disabled={isRegister} bg={isRegister ? Colors.lightPrimary : Colors.deepPrimary} p={hp(2)} press={registerWithEmailPassword}>
+          <Button disabled={isRegister} bg={isRegister ? Colors.lightPrimary : Colors.deepPrimary} p={hp(2)} press={handleRegister}>
             <Text variant='titleSmall' style={{ fontFamily: 'i500', color: Colors.white }} className='text-center'>Sign up</Text>
           </Button>
         </View>

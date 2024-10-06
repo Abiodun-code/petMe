@@ -1,8 +1,20 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import auth from '@react-native-firebase/auth'
 import firestore from '@react-native-firebase/firestore';
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
-export const createAccount = createAsyncThunk('auth/createAccount', async({email, password, username}, {rejectWithValue})=>{
+
+// Async action to load token from AsyncStorage
+export const loadUserFromStorage = createAsyncThunk('auth/loadUser', async (_,{rejectWithValue}) => {
+  try {
+    const token = await AsyncStorage.getItem('token');
+    return token ? { isAuthenticated: true, token } : { isAuthenticated: false };
+  } catch (error) {
+    return rejectWithValue(error);
+  }
+});
+
+export const createAccount = createAsyncThunk<any,{email:string, username:string, password:string, rejectWithValue:string}>('auth/createAccount', async({email, password, username}, {rejectWithValue})=>{
   try {
     const userCredential = await auth().createUserWithEmailAndPassword(email, password);
 
@@ -12,16 +24,34 @@ export const createAccount = createAsyncThunk('auth/createAccount', async({email
     });
 
     // Save user data to Firestore
-    await firestore().collection('users').doc(userCredential.user.uid).set({
+    await firestore().collection('profile').doc(userCredential.user.uid).set({
       username,
       email,
     });
 
-    return userCredential.user; // Return the user data for potential further use
+
+    console.log('user credential', userCredential.user);
+    return userCredential
   } catch (error) {
     return rejectWithValue(error.message); // Reject with error message
   }
-}
+
+})
+
+export const loginUser = createAsyncThunk<any, { email: string, password:string, rejectWithValue: string }>('auth/loginUser', async ({ email, password }, { rejectWithValue }) => {
+  try {
+    const userCredential = await auth().signInWithEmailAndPassword(email, password);
+
+    const token = await userCredential.user.getIdToken()
+
+    await AsyncStorage.setItem('token', token);
+
+    console.log('user credential', token);
+    return userCredential
+  } catch (error) {
+    return rejectWithValue(error.message); // Reject with error message
+  }
+
 })
 
 const registerSlice = createSlice({
@@ -29,32 +59,52 @@ const registerSlice = createSlice({
   initialState:{
     isLoading: false,
     error: false,
-    token: null,
-    user: null,
+    token:'',
+    isAuthenticated: false, // Assume user is not authenticated initially
   },
   reducers:{
     logoutUser: (state)=>{
       state.isLoading = false;
       state.error = false;
-      state.token = null;
-      state.user = null;
-    }
+      state.token = '';
+    },
   },
   extraReducers: (builder) => {
     builder
-     .addCase("register", (state) => {
+    .addCase(createAccount.pending, (state)=>{
+      state.isLoading = false
+    })
+    .addCase(createAccount.fulfilled, (state, action: PayloadAction<any>)=>{
+      state.isLoading = false
+      state.isAuthenticated = true
+    })
+      .addCase(createAccount.rejected, (state, action: PayloadAction<any>)=>{
+      state.error = action.payload
+    })
+    .addCase(loginUser.pending, (state) => {
+      state.isLoading = false
+    })
+    .addCase(loginUser.fulfilled, (state, action: PayloadAction<any>) => {
+      state.isLoading = false
+      state.isAuthenticated = true
+    })
+    .addCase(loginUser.rejected, (state, action: PayloadAction<any>) => {
+      state.error = action.payload
+    })
+      // check login status
+      .addCase(loadUserFromStorage.pending, state => {
         state.isLoading = true;
-        state.error = false;
       })
-     .addCase("register", (state, action) => {
+      .addCase(loadUserFromStorage.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.error = false;
-        state.token = action.payload.token;
-        state.user = action.payload.user;
+        state.isAuthenticated = action.payload.isAuthenticated;
+        state.token = action.payload || null;
       })
-     .addCase("register", (state, action) => {
+      .addCase(loadUserFromStorage.rejected, (state, action) => {
         state.isLoading = false;
-        state.error = action.payload.error;
+        state.error = action.payload;
       });
   }
+
 })
+export default registerSlice.reducer;

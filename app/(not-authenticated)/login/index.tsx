@@ -6,11 +6,20 @@ import { heightPercentageToDP as hp } from 'react-native-responsive-screen'
 import { LoginContext } from '@contexts/login/loginContext';
 import { router } from 'expo-router';
 import { Button, Container, CustomInput, Title } from '@shared/index';
+import { useDispatch } from 'react-redux';
+import { loginUser } from '@services/state/not-authenticated/registerSlice';
 
 const Login = () => {
 
   const {passwordVisible, email, password, setEmail, setPassword, togglePasswordVisibility, isLogin} = useContext(LoginContext)
 
+  const dispatch = useDispatch();
+
+  const handleLogin = () => {
+    dispatch(loginUser({ email, password }));
+    router.navigate('/(authenticated)/home');
+  };
+  
   return (
     <Container padX={hp(2)}>
       <ScrollView contentContainerStyle={{ flex: 1, paddingTop:hp(2)}}>
@@ -25,7 +34,7 @@ const Login = () => {
         <Button press={() => { router.navigate('/forget') }} pt={hp(0)} mb={hp(7)} >
           <Text variant='bodySmall' style={{ fontFamily: 'i700', color: Colors.deepPrimary }}>forget your password?</Text>
         </Button>
-        <Button disabled={isLogin} bg={isLogin ? Colors.lightPrimary : Colors.deepPrimary}  p={hp(2)}>
+        <Button disabled={isLogin} bg={isLogin ? Colors.lightPrimary : Colors.deepPrimary}  p={hp(2)} press={handleLogin}>
           <Text variant='titleSmall' style={{ fontFamily: 'i500', color: Colors.white }} className='text-center'>Log in</Text>
         </Button>
         <View className='flex-1 justify-end items-center' style={{ marginBottom: hp(2)}}>
