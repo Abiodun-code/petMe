@@ -3,9 +3,9 @@ import { Inter_900Black, Inter_700Bold, Inter_500Medium, Inter_400Regular, Inter
 import { LeagueSpartan_300Light, LeagueSpartan_400Regular, LeagueSpartan_500Medium, LeagueSpartan_700Bold, LeagueSpartan_900Black } from '@expo-google-fonts/league-spartan';
 import { configureFonts, PaperProvider } from 'react-native-paper';
 import { useFonts } from 'expo-font';
-import ContextWrapper from '../src/contexts/index';
-import { SplashScreen } from 'expo-router';
 import { useEffect } from 'react';
+import ContextWrapper from '@contexts/index';
+import * as SplashScreen from 'expo-splash-screen';
 
 SplashScreen.preventAutoHideAsync();
 

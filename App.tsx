@@ -1,11 +1,15 @@
-import { View, Text } from 'react-native'
 import React from 'react'
+import Main from '@navigation/index'
+import { SafeAreaProvider } from 'react-native-safe-area-context'
+import ConfigureWrapper from '@components/configures'
 
 const App = () => {
   return (
-    <View>
-      <Text>App</Text>
-    </View>
+    <ConfigureWrapper>
+      <SafeAreaProvider>
+        <Main />
+      </SafeAreaProvider>
+    </ConfigureWrapper>
   )
 }
 
