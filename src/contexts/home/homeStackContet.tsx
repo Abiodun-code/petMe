@@ -1,6 +1,6 @@
 import { View, Text } from 'react-native'
 import React, { createContext } from 'react'
-import { homeStackChild, homeStackContextProps } from '@types/homeStackType'
+import { homeStackChild, homeStackContextProps } from '../../types/homeStackType'
 import Animated, {
   useSharedValue,
   useAnimatedStyle,

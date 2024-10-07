@@ -67,6 +67,7 @@ const registerSlice = createSlice({
       state.isLoading = false;
       state.error = false;
       state.token = '';
+      AsyncStorage.removeItem('token')
     },
   },
   extraReducers: (builder) => {
@@ -87,6 +88,7 @@ const registerSlice = createSlice({
     .addCase(loginUser.fulfilled, (state, action: PayloadAction<any>) => {
       state.isLoading = false
       state.isAuthenticated = true
+      state.token = action.payload
     })
     .addCase(loginUser.rejected, (state, action: PayloadAction<any>) => {
       state.error = action.payload
@@ -108,3 +110,5 @@ const registerSlice = createSlice({
 
 })
 export default registerSlice.reducer;
+
+export const {logoutUser} = registerSlice.actions

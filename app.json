@@ -30,15 +30,11 @@
     },
     "plugins": [
       "expo-font",
-      "expo-router",
       "@react-native-firebase/app",
       "@react-native-firebase/auth",
       "@react-native-google-signin/google-signin"
     ],
     "extra": {
-      "router": {
-        "origin": false
-      },
       "eas": {
         "projectId": "399e3be0-021f-45ce-b475-62c1311b3786"
       }
