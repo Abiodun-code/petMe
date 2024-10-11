@@ -1,6 +1,6 @@
 import React from 'react'
 import { ActivityIndicator } from 'react-native-paper'
-import Colors from '@utils/colors'
+import Colors from '@/utils/colors'
 
 interface Props {
   color?: string,

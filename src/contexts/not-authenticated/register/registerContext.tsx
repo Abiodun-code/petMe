@@ -1,5 +1,5 @@
 import React, { createContext, useState } from 'react'
-import { registerChild, registerContextProps } from '../../types/registerType';
+import { registerChild, registerContextProps } from '../../../types/not-authenticated/registerType';
 
 export const RegisterContext = createContext({} as registerContextProps)
 

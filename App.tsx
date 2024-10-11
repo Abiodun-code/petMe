@@ -1,9 +1,10 @@
-import React from 'react'
-import Main from '@navigation/index'
+import Main from '@/navigation/index'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
-import ConfigureWrapper from '@components/configures'
+import ConfigureWrapper from '@/components/configures'
+import { Provider } from 'react-redux'
+import { store } from '@/services/state/store'
 
-const App = () => {
+export default function App (){
   return (
     <ConfigureWrapper>
       <SafeAreaProvider>
@@ -12,5 +13,3 @@ const App = () => {
     </ConfigureWrapper>
   )
 }
-
-export default App

@@ -4,7 +4,7 @@ import { LeagueSpartan_300Light, LeagueSpartan_400Regular, LeagueSpartan_500Medi
 import { configureFonts, PaperProvider } from 'react-native-paper';
 import { useFonts } from 'expo-font';
 import { useEffect } from 'react';
-import ContextWrapper from '@contexts/index';
+import ContextWrapper from '@/contexts/index';
 import * as SplashScreen from 'expo-splash-screen';
 
 SplashScreen.preventAutoHideAsync();

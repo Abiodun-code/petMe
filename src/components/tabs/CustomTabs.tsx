@@ -1,4 +1,4 @@
-import Colors from '@utils/colors';
+import Colors from '@/utils/colors';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { heightPercentageToDP as hp } from 'react-native-responsive-screen'
 import { AntDesign, Ionicons } from '@expo/vector-icons'

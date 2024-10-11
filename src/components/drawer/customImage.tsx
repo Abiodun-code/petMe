@@ -1,7 +1,7 @@
 import { View, Text, TouchableOpacity, Image } from 'react-native'
 import React from 'react'
 import { heightPercentageToDP as hp } from 'react-native-responsive-screen'
-import Colors from '@utils/colors'
+import Colors from '@/utils/colors'
 import { router } from 'expo-router'
 
 const CustomImage = () => {

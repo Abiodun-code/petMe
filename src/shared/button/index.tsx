@@ -14,6 +14,10 @@ interface Props {
   borderW?: number | undefined,
   borderC?: string,
   pL?: number,
+  flex?: number,
+  justContent?: string,
+  itemAlign?: string,
+  flexD?: string
 }
 
 const Button = ({
@@ -28,18 +32,26 @@ const Button = ({
   borderC,
   borderW,
   pL,
+  flex,
+  justContent,
+  itemAlign,
+  flexD
 }: Props) => {
 
   // Combine className and dynamic inline styles
   const dynamicStyles = {
     backgroundColor: bg,
     padding: p,
-    borderRadius: borderR ? borderR : hp(7),
+    borderRadius: borderR || hp(7),
     paddingTop: pt,
     marginBottom: mb,
     borderColor: borderC,
     borderWidth: borderW,
     paddingLeft: pL,
+    flex: flex,
+    justifyContent: justContent,
+    alignItems: itemAlign,
+    flexDirection: flexD, 
   };
 
   return (

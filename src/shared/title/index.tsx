@@ -11,7 +11,7 @@ interface Props {
 const Title = ({children, font, variant}: Props) => {
   return (
     <Text
-      variant={variant ? variant : 'titleMedium'}
+      variant={variant || 'titleMedium'}
       style={{ fontFamily: font || 'i700' }}
     >
       {children}

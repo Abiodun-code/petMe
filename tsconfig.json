@@ -3,15 +3,15 @@
   "compilerOptions": {
     "strict": true,
     "paths": {
-      "@components/*": ["./src/components/*"],
-      "@services/*": ["./src/services/*"],
-      "@shared/*": ["./src/shared/*"],
-      "@utils/*": ["./src/utils/*"],
-      "@assets/*": ["./assets/*"],
-      "@types/*": ["./src/types/*"],
-      "@contexts/*": ["./src/contexts/*"],
-      "@navigation/*": ["./src/navigation/*"],
-      "@screens/*": ["./src/screens/*"],
+      "@/components/*": ["./src/components/*"],
+      "@/services/*": ["./src/services/*"],
+      "@/shared/*": ["./src/shared/*"],
+      "@/utils/*": ["./src/utils/*"],
+      "@/assets/*": ["./assets/*"],
+      "@/types/*": ["./src/types/*"],
+      "@/contexts/*": ["./src/contexts/*"],
+      "@/navigation/*": ["./src/navigation/*"],
+      "@/screens/*": ["./src/screens/*"],
     }
   }
 }

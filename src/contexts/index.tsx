@@ -1,15 +1,12 @@
 import React from 'react'
-import HomeStackProvider from './home/homeStackContet'
-import LoginProvider from './login/loginContext'
-import RegisterProvider from './register/registerContext'
+import LoginProvider from './not-authenticated/login/loginContext'
+import RegisterProvider from './not-authenticated/register/registerContext'
 
 const ContextWrapper = ({ children }: { children: React.ReactNode }) => {
   return (
     <RegisterProvider>
       <LoginProvider>
-        <HomeStackProvider>
-          {children}
-        </HomeStackProvider>
+        {children}
       </LoginProvider>
     </RegisterProvider>
   )

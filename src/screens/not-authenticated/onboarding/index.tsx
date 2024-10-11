@@ -1,17 +1,20 @@
-import { View, TouchableOpacity, Image } from 'react-native'
+import { View, Image } from 'react-native'
 import React, { useEffect } from 'react'
-import { useNavigation } from '@react-navigation/native'
-import { NOT_AUTHENTICATED__PATH } from '../../../types/notAuthentication'
-import { NativeStackNavigatorProps } from 'react-native-screens/lib/typescript/native-stack/types'
-import Container from '@shared/container'
+import {Container, Title} from '@/shared/index'
 import { heightPercentageToDP as hp } from 'react-native-responsive-screen'
 import Animated, { useSharedValue, withSpring } from 'react-native-reanimated'
-import Colors from '@utils/colors'
+import Colors from '@/utils/colors'
 import { Text } from 'react-native-paper'
+import { NOT_AUTHENTICATED_PARAM } from '@/types/index'
+import { NativeStackNavigationProp } from '@react-navigation/native-stack'
 
-const Onboarding = () => {
+type Props = {
+  navigation: NativeStackNavigationProp<NOT_AUTHENTICATED_PARAM>;
+};
 
-  const navigation = useNavigation<NativeStackNavigatorProps>()
+
+const Onboarding = ({ navigation }: Props) => {
+
 
   const ring1 = useSharedValue(0)
   const ring2 = useSharedValue(0)
@@ -34,7 +37,7 @@ const Onboarding = () => {
             />
           </Animated.View>
         </Animated.View>
-        <Text></Text>
+        <Title>h</Title>
      </View>
     </Container>
   )

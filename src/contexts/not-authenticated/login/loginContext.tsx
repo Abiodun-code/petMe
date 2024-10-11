@@ -1,5 +1,5 @@
 import React, { createContext, useState } from 'react'
-import { loginChild, loginContextProps } from '../../types/loginType'
+import { loginChild, loginContextProps } from '../../../types/not-authenticated/loginType'
 
 export const LoginContext = createContext({} as loginContextProps)
 
