@@ -11,13 +11,18 @@ interface Props {
   pt?: number,
   mb?: number,
   borderR?: number | undefined,
+  borderLW?: number | undefined,
+  borderRW?: number | undefined,
+  borderTW?: number | undefined,
+  borderBW?: number | undefined,
   borderW?: number | undefined,
-  borderC?: string,
+  borderC?: undefined,
   pL?: number,
   flex?: number,
   justContent?: string,
   itemAlign?: string,
-  flexD?: string
+  flexD?: string,
+  status?: undefined | any
 }
 
 const Button = ({
@@ -35,7 +40,12 @@ const Button = ({
   flex,
   justContent,
   itemAlign,
-  flexD
+  flexD,
+  borderBW,
+  borderLW,
+  borderTW,
+  borderRW,
+  status,
 }: Props) => {
 
   // Combine className and dynamic inline styles
@@ -52,11 +62,16 @@ const Button = ({
     justifyContent: justContent,
     alignItems: itemAlign,
     flexDirection: flexD, 
+    borderTopWidth: borderTW,
+    borderRightWidth: borderRW,
+    borderBottomWidth: borderBW,
+    borderLeftWidth: borderLW,
+    ...status
   };
 
   return (
     <TouchableOpacity
-      activeOpacity={0.6}
+      activeOpacity={0.7}
       disabled={disabled}
       onPress={press}
       style={dynamicStyles}  // Apply inline styles for dynamic values
