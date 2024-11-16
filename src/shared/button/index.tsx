@@ -9,7 +9,13 @@ interface Props {
   press?: ((event: GestureResponderEvent) => void) | any,
   p?: number,
   pt?: number,
+  pb?: number,
+  pr?: number,
+  mt?: number,
+  mr?: number,
+  ml?: number,
   mb?: number,
+  m?: number,
   borderR?: number | undefined,
   borderLW?: number | undefined,
   borderRW?: number | undefined,
@@ -22,7 +28,8 @@ interface Props {
   justContent?: string,
   itemAlign?: string,
   flexD?: string,
-  status?: undefined | any
+  status?: undefined | any,
+  gap?: number | undefined,
 }
 
 const Button = ({
@@ -46,6 +53,14 @@ const Button = ({
   borderTW,
   borderRW,
   status,
+  gap,
+  ml,
+  mr,
+  mt,
+  m,
+  pb,
+  pr,
+  
 }: Props) => {
 
   // Combine className and dynamic inline styles
@@ -61,11 +76,18 @@ const Button = ({
     flex: flex,
     justifyContent: justContent,
     alignItems: itemAlign,
-    flexDirection: flexD, 
+    flexDirection: flexD,
     borderTopWidth: borderTW,
     borderRightWidth: borderRW,
     borderBottomWidth: borderBW,
     borderLeftWidth: borderLW,
+    gap: gap,
+    marginLeft: ml,
+    marginRight: mr,
+    marginTop: mt,
+    margin: m,
+    paddingBottom: pb,
+    paddingRight: pr,
     ...status
   };
 
