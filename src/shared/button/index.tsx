@@ -16,6 +16,10 @@ interface Props {
   ml?: number,
   mb?: number,
   m?: number,
+  mv?: number,
+  mh?: number,
+  pv?: number,
+  ph?: number,
   borderR?: number | undefined,
   borderLW?: number | undefined,
   borderRW?: number | undefined,
@@ -60,7 +64,10 @@ const Button = ({
   m,
   pb,
   pr,
-  
+  ph,
+  mh,
+  mv,
+  pv,
 }: Props) => {
 
   // Combine className and dynamic inline styles
@@ -88,6 +95,10 @@ const Button = ({
     margin: m,
     paddingBottom: pb,
     paddingRight: pr,
+    paddingHorizontal: ph,
+    marginVertical: mh,
+    marginHorizontal: mv,
+    paddingVertical: pv,
     ...status
   };
 
